@@ -11,7 +11,6 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { UserService } from './user.service';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import { DeleteButtonComponent } from './home/DeleteButtonComponent';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { DeleteButtonComponent } from './home/DeleteButtonComponent';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent,
-    DeleteButtonComponent
+    FetchDataComponent   
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,10 +29,7 @@ import { DeleteButtonComponent } from './home/DeleteButtonComponent';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ])
-  ],
-  entryComponents: [
-    DeleteButtonComponent
-  ],
+  ], 
   providers: [UserService],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { UserService } from '../user.service';
-import { DeleteButtonComponent } from './DeleteButtonComponent';
 
 @Component({
   selector: 'app-home',

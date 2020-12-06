@@ -100,20 +100,15 @@ namespace Web_API.Controllers
         }
 
 
-        [HttpPost]
-        [Route("Delete")]
-        public async Task<IActionResult> Delete(long? userId)
+        [HttpGet]
+        [Route("Delete/{id}")]
+        public async Task<IActionResult> Delete(long id)
         {
-            int result = 0;
-
-            if (userId == null)
-            {
-                return BadRequest();
-            }
+            int result = 0;           
 
             try
             {
-                result = await userService.Delete(userId);
+                result = await userService.Delete(id);
                 if (result == 0)
                 {
                     return NotFound();
