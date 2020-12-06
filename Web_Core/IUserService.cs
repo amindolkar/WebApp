@@ -4,18 +4,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Web_Data.Model;
 
-namespace Web_Core
+namespace Web_Core_Service
 {
    public interface IUserService
     {
-       Task<long> SaveUser(User user);    
+       Task<long> SaveUserDetails(User user);    
 
-        Task Edit(User user);
+        Task UpdateUserDetails(User user);
 
-        Task<List<User>> GetAllUsers();
+        Task<List<User>> GetUserDetails();
 
 
-        Task<int> Delete(long? userId);
+        Task<int> DeleteUser(long? userId);
        
     }
 }

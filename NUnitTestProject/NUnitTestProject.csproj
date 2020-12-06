@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Web_Core\Web_Core.csproj" />
+    <ProjectReference Include="..\Web_Core\Web_Core_Service.csproj" />
   </ItemGroup>
 
 </Project>

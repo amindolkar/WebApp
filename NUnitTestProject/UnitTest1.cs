@@ -1,8 +1,7 @@
 using Moq;
 using NUnit.Framework;
-using System;
 using System.Threading.Tasks;
-using Web_Core;
+using Web_Core_Service;
 using Web_Data.Model;
 
 namespace NUnitTestProject
@@ -24,9 +23,9 @@ namespace NUnitTestProject
             var user = new User { FirstName = "Anil", LastName = "M", City = "Hal" ,PhoneNumber="123456" };
             var mockService = new Mock<IUserService>();
             
-             mockService.Setup(x => x.SaveUser(user)).Returns(taskCompletion.Task);
+             mockService.Setup(x => x.SaveUserDetails(user)).Returns(taskCompletion.Task);
 
-            var userobject= await mockService.Object.SaveUser(user);
+            var userobject= await mockService.Object.SaveUserDetails(user);
             Assert.AreEqual(userobject, 1);
         }
 
@@ -39,9 +38,9 @@ namespace NUnitTestProject
             var user = new User {UserId=1, FirstName = "Anil", LastName = "M", City = "Hal", PhoneNumber = "123456" };
             var mockService = new Mock<IUserService>();
 
-            mockService.Setup(x => x.Edit(user)).Returns(taskCompletion.Task);
+            mockService.Setup(x => x.UpdateUserDetails(user)).Returns(taskCompletion.Task);
 
-            await mockService.Object.Edit(user);
+            await mockService.Object.UpdateUserDetails(user);
             Assert.True(true);
         }
     }

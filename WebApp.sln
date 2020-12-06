@@ -7,11 +7,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_API", "Web_API\Web_API.csproj", "{E8480A69-2362-43B4-BE05-50D378CDB0C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_Data", "Web_Data\Web_Data.csproj", "{2A225324-D648-4C76-BE6D-F8C41D0A4D77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_DataAccess", "Web_Data\Web_DataAccess.csproj", "{2A225324-D648-4C76-BE6D-F8C41D0A4D77}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_Core", "Web_Core\Web_Core.csproj", "{B7222FBD-32DC-4F66-B972-55574B074226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_Core_Service", "Web_Core\Web_Core_Service.csproj", "{B7222FBD-32DC-4F66-B972-55574B074226}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject", "NUnitTestProject\NUnitTestProject.csproj", "{600B420D-7ECF-4D59-BA96-1BAE242F0418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestProject", "NUnitTestProject\NUnitTestProject.csproj", "{600B420D-7ECF-4D59-BA96-1BAE242F0418}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{46FB1FA9-CF17-40C8-A296-8A1506C23669}"
+	ProjectSection(SolutionItems) = preProject
+		SqlQuery_Question1.sql = SqlQuery_Question1.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

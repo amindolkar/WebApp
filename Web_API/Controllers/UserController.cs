@@ -1,39 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Web_Core;
+using Web_Core_Service;
 using Web_Data.Model;
 
 namespace Web_API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]    
-    public class HomeController : ControllerBase
+    [ApiController]
+    public class UserController : ControllerBase
     {
         private readonly IUserService userService;
 
-        public HomeController(IUserService _user)
+        public UserController(IUserService _user)
         {
             userService = _user;
         }
 
+
+        /// <summary>
+        /// get the user details
+        /// </summary>
+        /// <returns>
+        /// returns the All users data
+        /// </returns>
         [HttpGet]
         [Route("Get")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetUserDetails()
         {
             try
             {
-                var categories = await userService.GetAllUsers(); 
-                if (categories == null)
+                var users = await userService.GetUserDetails();
+                if (users == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(categories);
+                return Ok(users);
             }
             catch (Exception)
             {
@@ -42,19 +45,25 @@ namespace Web_API.Controllers
 
         }
 
-
+        /// <summary>
+        /// add the user details by paasing user model
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>
+        /// returns the userId
+        /// </returns>
         [HttpPost]
         [Route("Create")]
-        public async Task<IActionResult> Create([FromBody] User model)
+        public async Task<IActionResult> AddUserDetails([FromBody] User model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var postId = await userService.SaveUser(model);
-                    if (postId > 0)
+                    var userId = await userService.SaveUserDetails(model);
+                    if (userId > 0)
                     {
-                        return Ok(postId);
+                        return Ok(userId);
                     }
                     else
                     {
@@ -70,18 +79,26 @@ namespace Web_API.Controllers
             }
 
             return BadRequest();
-        }       
+        }
 
-        
+
+
+        /// <summary>
+        /// update the user details by passing updated user model
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>
+        /// returns the status
+        /// </returns>
         [HttpPost]
-        [Route("Edit")]
-        public async Task<IActionResult> Edit([FromBody] User model)
+        [Route("Update")]
+        public async Task<IActionResult> UpdateUserDetails([FromBody] User model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await userService.Edit(model);
+                    await userService.UpdateUserDetails(model);
 
                     return Ok();
                 }
@@ -100,15 +117,22 @@ namespace Web_API.Controllers
         }
 
 
+        /// <summary>
+        /// Delete the user based on userId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// returns the status
+        /// </returns>
         [HttpGet]
         [Route("Delete/{id}")]
-        public async Task<IActionResult> Delete(long id)
+        public async Task<IActionResult> DeleteUser(long id)
         {
-            int result = 0;           
+            int result = 0;
 
             try
             {
-                result = await userService.Delete(id);
+                result = await userService.DeleteUser(id);
                 if (result == 0)
                 {
                     return NotFound();
@@ -120,6 +144,6 @@ namespace Web_API.Controllers
 
                 return BadRequest();
             }
-        }       
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Web_Data.Migrations
+namespace Web_DataAccess.Migrations
 {
-    public partial class Web_DataUserDbContext : Migration
+    public partial class Web_DataAccessUserDbContext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

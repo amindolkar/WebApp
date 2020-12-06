@@ -12,7 +12,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "8.2.12",
+    "@angular/animations": "^8.2.12",
     "@angular/common": "8.2.12",
     "@angular/compiler": "8.2.12",
     "@angular/core": "8.2.12",
@@ -28,6 +28,7 @@
     "jquery": "3.4.1",
     "ng2-completer": "^3.0.2",
     "ng2-smart-table": "^1.5.0",
+    "ngx-toastr": "^10.0.4",
     "oidc-client": "^1.9.1",
     "popper.js": "^1.16.0",
     "rxjs": "^6.5.3",

@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Web_Data;
+using Web_DataAccess;
 
-namespace Web_Data.Migrations
+namespace Web_DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20201205105812_Web_Data.UserDbContext")]
-    partial class Web_DataUserDbContext
+    [Migration("20201206091119_Web_DataAccess.UserDbContext")]
+    partial class Web_DataAccessUserDbContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

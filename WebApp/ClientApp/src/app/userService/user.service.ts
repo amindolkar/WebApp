@@ -11,19 +11,19 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   SaveUser(user) {
-    return this.http.post(this.rootUrl + 'api/Home/Create', user);
+    return this.http.post(this.rootUrl + 'api/User/Create', user);
   }
 
 
   getAllUsers() {
-    return this.http.get(this.rootUrl + 'api/Home/Get');
+    return this.http.get(this.rootUrl + 'api/User/Get');
   }
 
   EditUser(user) {
-    return this.http.post(this.rootUrl + 'api/Home/Edit', user);
+    return this.http.post(this.rootUrl + 'api/User/Update', user);
   }
 
   DeleteUser(id) {
-    return this.http.get(this.rootUrl + 'api/Home/Delete/'+id);
+    return this.http.get(this.rootUrl + 'api/User/Delete/'+id);
   }
 }

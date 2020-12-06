@@ -1,13 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Web_Data;
 using Web_Data.Model;
+using Web_DataAccess;
 
-namespace Web_Core
+namespace Web_Core_Service
 {
     public class userService : IUserService
     {
@@ -18,30 +16,14 @@ namespace Web_Core
             userDBContext = _userDbContext;
         }
 
-        public async  Task<int> Delete(long? userId)
-        {
-            int result = 0;
 
-            if (userDBContext != null)
-            {
-                //Find the post for specific post id
-                var user = await userDBContext.Users.FirstOrDefaultAsync(x => x.UserId == userId);
-
-                if (user != null)
-                {
-                    //Delete that post
-                    userDBContext.Users.Remove(user);
-
-                    //Commit the transaction
-                    result = await userDBContext.SaveChangesAsync();
-                }
-                return result;
-            }
-
-            return result;
-        }       
-     
-        public async Task<List<User>> GetAllUsers()
+        /// <summary>
+        /// get all the  users data
+        /// </summary>
+        /// <returns>
+        /// returns user data list
+        /// </returns>
+        public async Task<List<User>> GetUserDetails()
         {
             if (userDBContext != null)
             {
@@ -51,8 +33,14 @@ namespace Web_Core
             return null;
         }
 
-
-        public async Task<long> SaveUser(User user)
+        /// <summary>
+        /// Save the user Details by passing user model
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>
+        /// returns the saved userId
+        /// </returns>
+        public async Task<long> SaveUserDetails(User user)
         {
             if (userDBContext != null)
             {
@@ -65,16 +53,60 @@ namespace Web_Core
             return 0;
         }
 
-        public async Task Edit(User user)
+        /// <summary>
+        /// Update the  user Details by passing updated user model
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns>
+        /// returns the status
+        /// </returns>
+        public async Task UpdateUserDetails(User user)
         {
             if (userDBContext != null)
             {
-                //Delete that post
+                //Update that user
                 userDBContext.Users.Update(user);
 
                 //Commit the transaction
                 await userDBContext.SaveChangesAsync();
             }
         }
+
+        /// <summary>
+        /// Delete the user details based userId
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>
+        /// returns the status
+        /// </returns>
+        public async  Task<int> DeleteUser(long? userId)
+        {
+            int result = 0;
+
+            if (userDBContext != null)
+            {
+                //Find the user for specific user id
+                var user = await userDBContext.Users.FirstOrDefaultAsync(x => x.UserId == userId);
+
+                if (user != null)
+                {
+                    //Delete the user
+                    userDBContext.Users.Remove(user);
+
+                    //Commit the transaction
+                    result = await userDBContext.SaveChangesAsync();
+                }
+                return result;
+            }
+
+            return result;
+        }       
+     
+       
+
+
+       
+
+       
     }
 }

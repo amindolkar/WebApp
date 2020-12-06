@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Web_Data.Model;
 
-namespace Web_Data
+namespace Web_DataAccess
 {
    public class UserDbContext:DbContext
     {

@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Web_Core\Web_Core.csproj" />
-    <ProjectReference Include="..\Web_Data\Web_Data.csproj" />
+    <ProjectReference Include="..\Web_Core\Web_Core_Service.csproj" />
+    <ProjectReference Include="..\Web_Data\Web_DataAccess.csproj" />
   </ItemGroup>
 
 
